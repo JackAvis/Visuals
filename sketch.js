@@ -1,9 +1,3 @@
-// Daniel Shiffman
-// http://youtube.com/thecodingtrain
-// http://codingtra.in
-
-// Coding Challenge #114: Bubble Sort Visualization
-// https://youtu.be/67k3I2GxTH8
 
 let values = [];
 
