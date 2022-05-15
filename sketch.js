@@ -3,15 +3,18 @@ let values = [];
 
 
 let x = 1;
+let z = 0;
 let y = 1;
 let c = [[]];
 let i = 0;
 let s = 0;
 let changex = 2;
+let change_y = 1;
 let centerx = 0;
 let centery = 0;
 let number = 60;
 let r = true;
+let m = true;
 let state = 0;
 let cr1 = 1;
 let cr2 = 100;
@@ -55,9 +58,6 @@ document.getElementById("change").onclick = function() {
   }
   z = 0;
   state = Math.floor(Math.random() * 4);
-
- 
-
 }
 
 document.getElementById("color").onclick = function() {
@@ -66,9 +66,6 @@ document.getElementById("color").onclick = function() {
   cr2 = Math.floor(Math.random() * 1000);
   console.log(cr2);
   cr3 =Math.floor(Math.random() * 1000);
-
- 
-
 }
 
 class Circle{
@@ -90,47 +87,47 @@ function setup() {
   centery = windowHeight / 2;
   frameRate(30);
 }
-t = math.random
+t = Math.random
 function draw() {
   background(0);
   console.log(cr1);
   s = 0;
-  for (let j = 0; j < number; j++){
-    stroke(cr1 + x, cr2 + y, cr3 + (x + y));
-    fill(cr1 + x, cr2 + y, cr3 + (x + y));
-    color
-    y = calc(x)*230;
-    if (toposx(x) > windowWidth){
-      r = false;
-    }
-    if (toposx(x) < 0){
-      r = true;
+    for (let j = 0; j < number; j++){
+      stroke(cr1 + x, cr2 + y, cr3 + (x + y));
+      fill(cr1 + x, cr2 + y, cr3 + (x + y));
+      y = calc(x)*250;
+      if (toposx(x) > windowWidth){
+        r = false;
+      }
+      if (toposx(x) < 0){
+        r = true; 
+      }
+      if (toposx(y) > windowHeight){
+        m = false;
+      }
+      if (toposx(y) < 0){
+        m = true; 
+      }
       
+      if (r == true){
+        x = x + changex ;
+      }
+      if (r == false){
+        x = x - changex;
+      }
+      c[j].y = y;
+      c[j].x = x;
+      circle(toposx(c[j].x), toposy(c[j].y), 10);
+      s = s + .5;
     }
-    if (r == true){
-      x = x + changex;
-    }
-    if (r == false){
-      x = x - changex;
-    }
-    
-    
-    c[j].y = y;
-    c[j].x = x;
-   
-    circle(toposx(c[j].x), toposy(c[j].y), 10);
-    s = s + .5;
-  
-   
-  }
-  i = i + 1;
 }
 
 
 function calc(x){
   if (state == 0){
-   
-    return Math.sin(x);
+
+    return .5*Math.sin(x);
+    
   }
   if (state == 1){
     return Math.tan(x);
